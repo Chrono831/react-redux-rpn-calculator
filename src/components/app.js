@@ -1,13 +1,14 @@
 import React from 'react';
 
 import Stack from './stack.js';
+import Controls from './controls.js';
 
 const App = () => <div>
     <h1>RPN Calculator</h1>
 
-    <Stack items={[42, 6, 100]} />
-
-    <div><button type="button">Button!</button></div>
+    <Stack />
+    
+    <Controls />
 </div>;
 
 export default App;
