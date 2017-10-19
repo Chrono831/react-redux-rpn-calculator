@@ -9,7 +9,8 @@ const BABEL_OPTIONS = {
                 debug: true,
             }
         ],
-    ]
+    ],
+    plugins : ["transform-object-rest-spread"],
 };
 
 module.exports = {

@@ -7,21 +7,34 @@ import { Provider } from "react-redux";
 import App from './components/app.js';
 
 const initialState = {
-    stack: [99, 108, 255],
+    stack: [],
 };
 
-function reducer(state=initialState, action) {
+function reducer(state = initialState, action) {
     console.log(state, action);
 
+    const stackOp = (stackFunc) => ({
+        ...state,
+        stack: stackFunc(state.stack),
+    });
+
     switch (action.type) {
-        case 'dup':
-            return Object.assign(
-                {},
-                state,
-                {
-                    stack: [state.stack[0], ...state.stack],
+        case 'clear': 
+            return stackOp(() => []);
+        case 'dup':{
+            return stackOp(([a,...rest]) => [a, a, ...rest]);
+        }
+        case 'pushValue':
+            return stackOp(([...rest]) => [action.value, ...rest]);
+        case 'stackOp':
+            switch(action.operation){
+                case 'add': {
+                    return stackOp( ([a,b, ...rest]) => [a+b, ...rest] );
                 }
-            );
+                case 'subtract': {
+                    return stackOp( ([a,b, ...rest]) => [a-b, ...rest] );
+                }
+            }
     }
 
     return state;
