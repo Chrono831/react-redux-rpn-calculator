@@ -9,6 +9,7 @@ const Controls = (props) =>
         <Operations />
         <button type="button" onClick={e => props.dupTop()}>Dup</button>
         <button type="button" onClick={e => props.clear()}>Clear</button>
+        <button type="button" onClick={e => props.pop()}>←Pop</button>
         <NumberPad/>
     </div>;
 
@@ -20,6 +21,9 @@ export default connect(
         }),
         clear: () => ({
             type: 'clear',
+        }),
+        pop: () => ({
+            type: 'pop',
         }),
     }
 )(Controls);
