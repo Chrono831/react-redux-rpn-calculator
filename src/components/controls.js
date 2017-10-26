@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import Operations from './operations';
 import NumberPad from './number-pad';
 
+import { dupTop, clear, pop } from '../actions/index';
+const actions = {
+  dupTop,
+  clear,
+  pop,
+};
+
 const Controls = (props) =>
     <div>
         <Operations />
@@ -13,17 +20,4 @@ const Controls = (props) =>
         <NumberPad/>
     </div>;
 
-export default connect(
-    null,
-    {
-        dupTop: () => ({
-            type: 'dup',
-        }),
-        clear: () => ({
-            type: 'clear',
-        }),
-        pop: () => ({
-            type: 'pop',
-        }),
-    }
-)(Controls);
+export default connect( null, actions)(Controls);

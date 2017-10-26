@@ -1116,8 +1116,8 @@ module.exports = getActiveElement;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(23);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* unused harmony reexport combineReducers */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
 /* unused harmony reexport applyMiddleware */
 /* unused harmony reexport compose */
@@ -1951,12 +1951,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_app_js__ = __webpack_require__(72);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducers_index__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_app_js__ = __webpack_require__(72);
 
 
 
@@ -1966,112 +1962,13 @@ function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 
 
-var initialState = {
-    stack: []
-};
 
-function reducer() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-    var action = arguments[1];
-
-    console.log(state, action);
-
-    var stackOp = function stackOp(stackFunc) {
-        return _extends({}, state, {
-            stack: stackFunc(state.stack)
-        });
-    };
-
-    switch (action.type) {
-        case 'clear':
-            return stackOp(function () {
-                return [];
-            });
-        case 'dup':
-            {
-                return stackOp(function (_ref) {
-                    var _ref2 = _toArray(_ref),
-                        a = _ref2[0],
-                        rest = _ref2.slice(1);
-
-                    return [a, a].concat(_toConsumableArray(rest));
-                });
-            }
-        case 'pop':
-            {
-                return stackOp(function (_ref3) {
-                    var _ref4 = _toArray(_ref3),
-                        a = _ref4[0],
-                        rest = _ref4.slice(1);
-
-                    return [].concat(_toConsumableArray(rest));
-                });
-            }
-        case 'pushValue':
-            return stackOp(function (_ref5) {
-                var _ref6 = _toArray(_ref5),
-                    rest = _ref6.slice(0);
-
-                return [action.value].concat(_toConsumableArray(rest));
-            });
-        case 'stackOp':
-            switch (action.operation) {
-                case 'add':
-                    {
-                        return stackOp(function (_ref7) {
-                            var _ref8 = _toArray(_ref7),
-                                a = _ref8[0],
-                                b = _ref8[1],
-                                rest = _ref8.slice(2);
-
-                            return [a + b].concat(_toConsumableArray(rest));
-                        });
-                    }
-                case 'subtract':
-                    {
-                        return stackOp(function (_ref9) {
-                            var _ref10 = _toArray(_ref9),
-                                a = _ref10[0],
-                                b = _ref10[1],
-                                rest = _ref10.slice(2);
-
-                            return [a - b].concat(_toConsumableArray(rest));
-                        });
-                    }
-                case 'multiply':
-                    {
-                        return stackOp(function (_ref11) {
-                            var _ref12 = _toArray(_ref11),
-                                a = _ref12[0],
-                                b = _ref12[1],
-                                rest = _ref12.slice(2);
-
-                            return [a * b].concat(_toConsumableArray(rest));
-                        });
-                    }
-                case 'divide':
-                    {
-                        return stackOp(function (_ref13) {
-                            var _ref14 = _toArray(_ref13),
-                                a = _ref14[0],
-                                b = _ref14[1],
-                                rest = _ref14.slice(2);
-
-                            return [a / b].concat(_toConsumableArray(rest));
-                        });
-                    }
-            }
-    }
-
-    return state;
-}
-
-var store = Object(__WEBPACK_IMPORTED_MODULE_2_redux__["b" /* createStore */])(reducer);
+var store = Object(__WEBPACK_IMPORTED_MODULE_2_redux__["c" /* createStore */])(__WEBPACK_IMPORTED_MODULE_4__reducers_index__["a" /* rootReducer */]);
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     __WEBPACK_IMPORTED_MODULE_3_react_redux__["a" /* Provider */],
     { store: store },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_app_js__["a" /* default */], null)
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_app_js__["a" /* default */], null)
 ), document.querySelector('main'));
 
 /***/ }),
@@ -22565,7 +22462,7 @@ function symbolObservablePonyfill(root) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export default */
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(23);
@@ -23599,11 +23496,19 @@ var Stack = function Stack(props) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__operations__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__number_pad__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_index__ = __webpack_require__(77);
 
 
 
 
 
+
+
+var actions = {
+    dupTop: __WEBPACK_IMPORTED_MODULE_4__actions_index__["b" /* dupTop */],
+    clear: __WEBPACK_IMPORTED_MODULE_4__actions_index__["a" /* clear */],
+    pop: __WEBPACK_IMPORTED_MODULE_4__actions_index__["d" /* pop */]
+};
 
 var Controls = function Controls(props) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -23635,23 +23540,7 @@ var Controls = function Controls(props) {
     );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, {
-    dupTop: function dupTop() {
-        return {
-            type: 'dup'
-        };
-    },
-    clear: function clear() {
-        return {
-            type: 'clear'
-        };
-    },
-    pop: function pop() {
-        return {
-            type: 'pop'
-        };
-    }
-})(Controls));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, actions)(Controls));
 
 /***/ }),
 /* 75 */
@@ -23661,8 +23550,13 @@ var Controls = function Controls(props) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_index__ = __webpack_require__(77);
 
 
+
+var actions = {
+    operation: __WEBPACK_IMPORTED_MODULE_2__actions_index__["c" /* operation */]
+};
 
 var Operations = function Operations(_ref) {
     var operation = _ref.operation;
@@ -23702,14 +23596,7 @@ var Operations = function Operations(_ref) {
     );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, {
-    operation: function operation(_operation) {
-        return {
-            type: 'stackOp',
-            operation: _operation
-        };
-    }
-})(Operations));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, actions)(Operations));
 
 /***/ }),
 /* 76 */
@@ -23719,8 +23606,13 @@ var Operations = function Operations(_ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_index__ = __webpack_require__(77);
 
 
+
+var actions = {
+    pushValue: __WEBPACK_IMPORTED_MODULE_2__actions_index__["e" /* pushValue */]
+};
 
 var NumberPad = function NumberPad(_ref) {
     var pushValue = _ref.pushValue;
@@ -23741,14 +23633,182 @@ var NumberPad = function NumberPad(_ref) {
     );
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, {
-    pushValue: function pushValue(number) {
-        return {
-            type: 'pushValue',
-            value: number
-        };
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, actions)(NumberPad));
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return pushValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return dupTop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return clear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return pop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return operation; });
+var pushValue = function pushValue(number) {
+    return {
+        type: 'pushValue',
+        value: number
+    };
+};
+
+var dupTop = function dupTop() {
+    return {
+        type: 'dup'
+    };
+};
+
+var clear = function clear() {
+    return {
+        type: 'clear'
+    };
+};
+var pop = function pop() {
+    return {
+        type: 'pop'
+    };
+};
+
+var operation = function operation(_operation) {
+    return {
+        type: 'stackOp',
+        operation: _operation
+    };
+};
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return rootReducer; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stack__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__memory__ = __webpack_require__(80);
+
+
+
+
+var rootReducer = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* combineReducers */])({
+  stack: __WEBPACK_IMPORTED_MODULE_1__stack__["a" /* stack */],
+  memory: __WEBPACK_IMPORTED_MODULE_2__memory__["a" /* memory */]
+});
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return stack; });
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+
+var stack = function stack() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
+
+    console.log(state, action);
+
+    var stackOp = function stackOp(stackFunc) {
+        return stackFunc(state.stack);
+    };
+
+    switch (action.type) {
+        case 'clear':
+            return stackOp(function () {
+                return [];
+            });
+        case 'dup':
+            {
+                return stackOp(function (_ref) {
+                    var _ref2 = _toArray(_ref),
+                        a = _ref2[0],
+                        rest = _ref2.slice(1);
+
+                    return [a, a].concat(_toConsumableArray(rest));
+                });
+            }
+        case 'pop':
+            {
+                return stackOp(function (_ref3) {
+                    var _ref4 = _toArray(_ref3),
+                        a = _ref4[0],
+                        rest = _ref4.slice(1);
+
+                    return [].concat(_toConsumableArray(rest));
+                });
+            }
+        case 'pushValue':
+            return stackOp(function (_ref5) {
+                var _ref6 = _toArray(_ref5),
+                    rest = _ref6.slice(0);
+
+                return [action.value].concat(_toConsumableArray(rest));
+            });
+        case 'stackOp':
+            switch (action.operation) {
+                case 'add':
+                    {
+                        return stackOp(function (_ref7) {
+                            var _ref8 = _toArray(_ref7),
+                                a = _ref8[0],
+                                b = _ref8[1],
+                                rest = _ref8.slice(2);
+
+                            return [a + b].concat(_toConsumableArray(rest));
+                        });
+                    }
+                case 'subtract':
+                    {
+                        return stackOp(function (_ref9) {
+                            var _ref10 = _toArray(_ref9),
+                                a = _ref10[0],
+                                b = _ref10[1],
+                                rest = _ref10.slice(2);
+
+                            return [a - b].concat(_toConsumableArray(rest));
+                        });
+                    }
+                case 'multiply':
+                    {
+                        return stackOp(function (_ref11) {
+                            var _ref12 = _toArray(_ref11),
+                                a = _ref12[0],
+                                b = _ref12[1],
+                                rest = _ref12.slice(2);
+
+                            return [a * b].concat(_toConsumableArray(rest));
+                        });
+                    }
+                case 'divide':
+                    {
+                        return stackOp(function (_ref13) {
+                            var _ref14 = _toArray(_ref13),
+                                a = _ref14[0],
+                                b = _ref14[1],
+                                rest = _ref14.slice(2);
+
+                            return [a / b].concat(_toConsumableArray(rest));
+                        });
+                    }
+            }
     }
-})(NumberPad));
+    return state;
+};
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return memory; });
+var memory = function memory() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  return state;
+};
 
 /***/ })
 /******/ ]);

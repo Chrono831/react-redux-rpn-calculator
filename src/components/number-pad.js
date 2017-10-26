@@ -1,5 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { pushValue } from '../actions/index';
+const actions = {
+  pushValue,
+};
 
 const NumberPad = ({pushValue}) => {
     const numbers = [0,1,2,3,4,5,6,7,8,9];
@@ -8,9 +12,4 @@ const NumberPad = ({pushValue}) => {
     </div>;
 }
 
-export default connect(null, {
-    pushValue : (number) => ({
-        type: 'pushValue',
-        value: number,
-    })
-})(NumberPad);
+export default connect(null, actions)(NumberPad);
