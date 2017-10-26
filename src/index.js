@@ -24,6 +24,9 @@ function reducer(state = initialState, action) {
         case 'dup':{
             return stackOp(([a,...rest]) => [a, a, ...rest]);
         }
+        case 'pop':{
+            return stackOp(([a,...rest]) => [...rest]);
+        }
         case 'pushValue':
             return stackOp(([...rest]) => [action.value, ...rest]);
         case 'stackOp':
@@ -33,6 +36,12 @@ function reducer(state = initialState, action) {
                 }
                 case 'subtract': {
                     return stackOp( ([a,b, ...rest]) => [a-b, ...rest] );
+                }
+                case 'multiply': {
+                    return stackOp( ([a,b, ...rest]) => [a*b, ...rest] );
+                }
+                case 'divide': {
+                    return stackOp( ([a,b, ...rest]) => [a/b, ...rest] );
                 }
             }
     }

@@ -8,7 +8,7 @@ const NumberPad = ({pushValue}) => {
     </div>;
 }
 
-export default connect(null, { 
+export default connect(null, {
     pushValue : (number) => ({
         type: 'pushValue',
         value: number,
