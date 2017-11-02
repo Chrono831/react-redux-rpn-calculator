@@ -7,7 +7,7 @@ const actions = {
 
 const Operations = ({operation}) => {
 
-    return <div>
+    return <div className="operations">
         <button type="button" onClick={() => operation('add')}>+</button>
         <button type="button" onClick={() => operation('subtract')}>-</button>
         <button type="button" onClick={() => operation('multiply')}>x</button>

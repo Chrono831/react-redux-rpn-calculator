@@ -29,6 +29,14 @@ module.exports = {
                     options: BABEL_OPTIONS,
                 },
             },
+            {
+                test: /\.scss$/,
+                use: [
+                    { loader: 'style-loader', },
+                    { loader: 'css-loader', },
+                    { loader: 'sass-loader', },
+                ]
+            },
         ],
     },
 }
